@@ -1,0 +1,12 @@
+version: '3.11.5'
+services: 
+  dash: 
+    image: thassung/demoapp:v2.0.1
+    build:
+      context: .
+      dockerfile: dash.Dockerfile
+    volumes:
+      - ./app:/root
+    ports:
+      - 9999:8050
+    command: ["python", "app.py"]
