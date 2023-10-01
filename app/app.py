@@ -10,6 +10,7 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dbc.NavLink("Home", href="/")),
         dbc.NavItem(dbc.NavLink("Model ver.1", href="/v1")),
         dbc.NavItem(dbc.NavLink("Model ver.2", href="/v2")),
+        dbc.NavItem(dbc.NavLink("Model ver.3", href="/v3")),
     ],
     brand="ML2023 Car Selling Price Prediction A2",
     brand_href="/",
