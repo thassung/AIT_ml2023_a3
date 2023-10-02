@@ -1,3 +1,4 @@
 dump.ipynb
 docker-compose-mlflow
 .vscode-server
+.env

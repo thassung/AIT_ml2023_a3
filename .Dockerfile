@@ -15,6 +15,8 @@ RUN pip3 install dash[testing]
 RUN pip3 install pytest
 RUN pip3 install pytest-depends
 
+RUN pip3 install dill
+
 COPY ./app /root/app
 
 CMD tail -f /dev/null

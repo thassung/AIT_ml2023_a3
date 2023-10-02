@@ -1,13 +1,20 @@
 version: '3.11.5'
 services: 
-  web: 
-    command: python3 app.py
+  dash: 
+    command: tail -f /dev/null
     image: thassung/demoapp:v3.0.0
     build:
       context: .
-      dockerfile: dash.Dockerfile
+      dockerfile: .Dockerfile
     environment:
       - HOST=0.0.0.0
       - PORT=80
     ports:
       - 4000:80
+    volumes:
+      - ./app:/root/app
+    env_file:
+      - .env
+
+volumes:
+  vscode_server:
