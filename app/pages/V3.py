@@ -10,9 +10,9 @@ import mlflow       ##
 
 dash.register_page(
     __name__,
-    path='/v2',
-    title='ml 2023 a2 app',
-    name='Car Seling Price Prediction App V2 (Linear Regression)'
+    path='/v3',
+    title='ml 2023 a3 app',
+    name='Car Seling Price Prediction App V3 (Logistic Regression)'
 )
 
 # Create elements for app layout
@@ -139,7 +139,7 @@ form =  dbc.Form([
 # Explain Text
 text = html.Div([
     html.H1("Car Predicing (predict pricing) V2"),
-    html.P("The model is a LinearRegression model."),
+    html.P("The model is a LogisticRegression model."),
 ])
 
 # Dataset Example
@@ -181,8 +181,10 @@ layout =  dbc.Container([
     prevent_initial_call=True
 )
 
-def calculate_selling_price_a3(x_1, x_2, x_3, x_4, x_5, submit):
+
     
+
+def calculate_price_class(x_1, x_2, x_3, x_4, x_5):
     mlflow.set_tracking_uri('https://mlflow.cs.ait.ac.th/')
     model = mlflow.sklearn.load_model('models:/st124323-a3-model/staging')
     scaler = pickle.load(open('../app/pages/codeV3/model/scaler.pkl','rb'))
@@ -225,14 +227,19 @@ def calculate_selling_price_a3(x_1, x_2, x_3, x_4, x_5, submit):
     intercept = np.ones((X.shape[0], 1))
     X = np.concatenate((intercept, X), axis=1)
     phat = model.predict(X)
+
+    return phat
+
+def calculate_selling_price_a3(x_1, x_2, x_3, x_4, x_5, submit):
+    phat = calculate_price_class(x_1, x_2, x_3, x_4, x_5)[0]
     if phat == 0:
-        return f"Predicted car selling price is less than 1822499.25 INR (class {phat[0]})"
+        return f"Predicted car selling price is less than 1822499.25 INR (class {phat})"
     elif phat == 1:
-        return f"Predicted car selling price is between 1822499.25 INR and 3614999.5 INR (class {phat[0]})"
+        return f"Predicted car selling price is between 1822499.25 INR and 3614999.5 INR (class {phat})"
     elif phat == 2:
-        return f"Predicted car selling price is between 3614999.5 INR and 5407499.75 INR (class {phat[0]})"
+        return f"Predicted car selling price is between 3614999.5 INR and 5407499.75 INR (class {phat})"
     elif phat == 3:
-        return f"Predicted car selling price is more than 5407499.75 INR (class {phat[0]})"
+        return f"Predicted car selling price is more than 5407499.75 INR (class {phat})"
     
     return f'Uh oh. Sumting wong (phat: {phat[0]})'     
 

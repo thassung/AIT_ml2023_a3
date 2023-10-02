@@ -222,8 +222,5 @@ def calculate_selling_price(x_1, x_2, x_3, x_4, x_5, submit):
     pred = np.exp(model.predict(X))[0]
     return f"Predicted car price is: {pred:.2f}"
 
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', debug=True)
-
-# if __name__ == "__main__":
-#     app.run_server(debug=True)
+if __name__ == "__main__":
+    app.run_server(debug=True)

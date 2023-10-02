@@ -2,7 +2,7 @@ version: '3.11.5'
 services: 
   web: 
     command: python3 app.py
-    image: thassung/demoapp:v2.0.2
+    image: thassung/demoapp:v3.0.0
     build:
       context: .
       dockerfile: dash.Dockerfile
