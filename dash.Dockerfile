@@ -16,5 +16,6 @@ RUN pip3 install pytest
 RUN pip3 install pytest-depends
 
 COPY ./app /root/app
+COPY ./app/app.py /root/app.py
 
 CMD tail -f /dev/null
