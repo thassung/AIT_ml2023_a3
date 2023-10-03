@@ -7,4 +7,4 @@
 	name = thassung
 	email = 105700459+thassung@users.noreply.github.com
 [credential]
-	helper = "!f() { /root/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/node /tmp/vscode-remote-containers-9708eff2-be79-4de2-80da-e13552beb21d.js git-credential-helper $*; }; f"
+	helper = "!f() { /root/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/node /tmp/vscode-remote-containers-ac864837-6cf6-46f6-b187-1c04850ea5c0.js git-credential-helper $*; }; f"

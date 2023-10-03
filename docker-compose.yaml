@@ -2,7 +2,7 @@ version: '3.11.5'
 services: 
   dash: 
     command: tail -f /dev/null
-    # command: python3 app/app.py
+    # command: python3 app.py
     image: thassung/demoapp:latest
     build:
       context: .
