@@ -1,7 +1,7 @@
 version: '3.11.5'
 services: 
   web: 
-    command: python3 app.py
+    command: python3 /root/app/app.py
     image: thassung/demoapp:${tag}
     environment:
       - HOST=0.0.0.0
