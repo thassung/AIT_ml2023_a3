@@ -4,3 +4,4 @@ docker-compose-mlflow
 .env
 ./code/mlruns
 ./app/models
+.bash_history
