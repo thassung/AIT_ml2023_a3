@@ -12,6 +12,9 @@ def load(filename:str) -> object:
 import mlflow
 import os
 
+# mlflow.set_tracking_uri(os.environ['MLFLOW_TRACKING_URI'])
+# model_name = os.environ['APP_MODEL_NAME']
+mlflow.set_tracking_uri('https://mlflow.cs.ait.ac.th')
 model_name = 'st124323-a3-model'
 def load_mlflow(stage='Staging'):
     cache_path = os.path.join("models",stage)
