@@ -2,6 +2,5 @@ test.ipynb
 docker-compose-mlflow
 .vscode-server
 .env
-./code/model
 ./code/mlruns
 ./app/models
