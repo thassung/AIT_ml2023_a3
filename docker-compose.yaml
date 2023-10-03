@@ -13,7 +13,7 @@ services:
     ports:
       - 4000:80
     volumes:
-      - ./app:/root/app
+      - ./app:/root/
     env_file:
       - .env
 
