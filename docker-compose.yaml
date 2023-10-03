@@ -1,7 +1,7 @@
 version: '3.11.5'
 services: 
   dash: 
-    command: tail -f /dev/null
+    # command: tail -f /dev/null
     image: thassung/demoapp:v3.0.0
     build:
       context: .
@@ -11,10 +11,11 @@ services:
       - PORT=80
     ports:
       - 4000:80
-    volumes:
-      - ./app:/root/app
+    # volumes:
+    #   - ./app:/root/app
     env_file:
       - .env
+    command: ["python", "app.py"]
 
 volumes:
   vscode_server:
