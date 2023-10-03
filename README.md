@@ -9,3 +9,4 @@ This is a Car Selling Price Prediction Web App. Users can input 5 values includi
 The carprice is in INR currency
 
 You can access the app via https://st124323.ml2023.cs.ait.ac.th/
+And access the jupyter notebook via https://github.com/thassung/AIT_ml2023_a3/blob/main/code/train.ipynb
