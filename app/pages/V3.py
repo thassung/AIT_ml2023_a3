@@ -182,12 +182,23 @@ layout =  dbc.Container([
 )
 
 
+def calculate_selling_price_a3(x_1, x_2, x_3, x_4, x_5, submit):
+    phat = calculate_price_class(x_1, x_2, x_3, x_4, x_5)[0]
+    if phat == 0:
+        return f"Predicted car selling price is less than 1822499.25 INR (class {phat})"
+    elif phat == 1:
+        return f"Predicted car selling price is between 1822499.25 INR and 3614999.5 INR (class {phat})"
+    elif phat == 2:
+        return f"Predicted car selling price is between 3614999.5 INR and 5407499.75 INR (class {phat})"
+    elif phat == 3:
+        return f"Predicted car selling price is more than 5407499.75 INR (class {phat})"
     
+    return f'Uh oh. Sumting wong (phat: {phat[0]})'         
 
 def calculate_price_class(x_1, x_2, x_3, x_4, x_5):
     mlflow.set_tracking_uri('https://mlflow.cs.ait.ac.th/')
     model = mlflow.sklearn.load_model('models:/st124323-a3-model/staging')
-    scaler = pickle.load(open('./codeV3/model/scaler.pkl','rb'))
+    scaler = pickle.load(open('./pages/codeV3/model/scaler.pkl','rb'))
 
     ## scale engine and max_power
     if x_1 is None:
@@ -229,19 +240,6 @@ def calculate_price_class(x_1, x_2, x_3, x_4, x_5):
     phat = model.predict(X)
 
     return phat
-
-def calculate_selling_price_a3(x_1, x_2, x_3, x_4, x_5, submit):
-    phat = calculate_price_class(x_1, x_2, x_3, x_4, x_5)[0]
-    if phat == 0:
-        return f"Predicted car selling price is less than 1822499.25 INR (class {phat})"
-    elif phat == 1:
-        return f"Predicted car selling price is between 1822499.25 INR and 3614999.5 INR (class {phat})"
-    elif phat == 2:
-        return f"Predicted car selling price is between 3614999.5 INR and 5407499.75 INR (class {phat})"
-    elif phat == 3:
-        return f"Predicted car selling price is more than 5407499.75 INR (class {phat})"
-    
-    return f'Uh oh. Sumting wong (phat: {phat[0]})'     
 
 # if __name__ == '__main__':
 #     app.run(host='0.0.0.0', debug=True)
