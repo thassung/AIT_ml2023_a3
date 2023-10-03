@@ -2,6 +2,7 @@ version: '3.11.5'
 services: 
   dash: 
     # command: tail -f /dev/null
+    command: python3 app/app.py
     image: thassung/demoapp:v3.0.0
     build:
       context: .
@@ -15,7 +16,6 @@ services:
     #   - ./app:/root/app
     env_file:
       - .env
-    command: ["python", "app.py"]
 
 volumes:
   vscode_server:
