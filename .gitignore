@@ -5,3 +5,8 @@ docker-compose-mlflow
 ./code/mlruns
 ./app/models
 .bash_history
+.ssh
+.pytest_cache
+.config
+.pytest_cache
+__pycache__

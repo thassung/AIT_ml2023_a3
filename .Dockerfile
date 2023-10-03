@@ -17,7 +17,7 @@ RUN pip3 install pytest-depends
 
 RUN pip3 install dill
 
-COPY ./app /root/app
+COPY ./app /root/
 
 CMD tail -f /dev/null
 
