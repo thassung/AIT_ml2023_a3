@@ -3,7 +3,7 @@ services:
   dash: 
     # command: tail -f /dev/null
     command: python3 app/app.py
-    image: thassung/demoapp:v3.0.0
+    image: thassung/demoapp:latest
     build:
       context: .
       dockerfile: .Dockerfile
