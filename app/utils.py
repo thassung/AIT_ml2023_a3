@@ -12,7 +12,7 @@ def load(filename:str) -> object:
 import mlflow
 import os
 
-model_name = os.environ['APP_MODEL_NAME']
+model_name = 'st124323-a3-model'
 def load_mlflow(stage='Staging'):
     cache_path = os.path.join("models",stage)
     if(os.path.exists(cache_path) == False):
@@ -31,7 +31,7 @@ def load_mlflow(stage='Staging'):
 def register_model_to_production():
     from mlflow.client import MlflowClient
     client = MlflowClient()
-    for model in client.get_registered_model("st124323-a3").latest_versions: #type: ignore
+    for model in client.get_registered_model("st124323-a3-model").latest_versions: #type: ignore
         # find model in Staging
         if(model.current_stage == "Staging"):
             version = model.version
