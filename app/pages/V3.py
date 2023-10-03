@@ -199,7 +199,7 @@ def calculate_price_class(x_1, x_2, x_3, x_4, x_5):
     mlflow.set_tracking_uri('https://mlflow.cs.ait.ac.th/')
     model = mlflow.sklearn.load_model('models:/st124323-a3-model/staging')
     # scaler = pickle.load(open('./pages/codeV3/model/scaler.pkl','rb'))
-    scaler = pickle.load(open('/root/app/pages/codeV3/model/scaler.pkl','rb'))
+    scaler = pickle.load(open('/root/pages/codeV3/model/scaler.pkl','rb'))
 
     ## scale engine and max_power
     if x_1 is None:

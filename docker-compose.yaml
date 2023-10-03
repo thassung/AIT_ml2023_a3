@@ -1,8 +1,8 @@
 version: '3.11.5'
 services: 
   dash: 
-    # command: tail -f /dev/null
-    command: python3 app/app.py
+    command: tail -f /dev/null
+    # command: python3 app/app.py
     image: thassung/demoapp:latest
     build:
       context: .
@@ -12,8 +12,8 @@ services:
       - PORT=80
     ports:
       - 4000:80
-    # volumes:
-    #   - ./app:/root/app
+    volumes:
+      - ./app:/root
     env_file:
       - .env
 
